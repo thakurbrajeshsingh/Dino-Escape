@@ -2,6 +2,14 @@ score = 0;
 cross = true;
 
 
+
+audio=new Audio('Audio/music.mp3');
+audioLogo=new Audio('Audio/gameover.mp3');
+
+setTimeout(()=>{
+    audio.play();
+},1000)
+
 document.onkeydown = function (e) {
     console.log("Key Code is", e.keyCode);
     if (e.keyCode == 38) {
@@ -43,8 +51,13 @@ setInterval(() => {
     offsetX = Math.abs(dx - ox);
     offsetY = Math.abs(dy - oy);
     if (offsetX < 113 && offsetY < 52) {
-        gameOver.style.visibility = 'visible';
+        gameOver.innerHTML="Game Over Reload To Play Again"
         obstacle.classList.remove('obstacleAni');
+        audioLogo.play();
+        setTimeout(() => {
+            audio.pause();
+            audioLogo.pause();
+        }, 1000);
     }
     else if (offsetX < 145 && cross) {
         score += 1;
