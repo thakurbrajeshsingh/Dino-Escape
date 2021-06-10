@@ -38,6 +38,13 @@ body{
     left: 44vw;
 }
 
+
+.gameOver{
+    visibility: hidden;
+}
+
+
+
 .animateDino{
     animation: dino 0.6s linear;
 }
