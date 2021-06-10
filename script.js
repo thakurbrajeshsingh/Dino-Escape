@@ -1,3 +1,7 @@
+score=0;
+cross=true;
+
+
 document.onkeydown=function(e){
     console.log("Key Code is",e.keyCode);
         if(e.keyCode==38){
@@ -20,14 +24,7 @@ if(e.keyCode==39){
         dino=document.querySelector('.dino');
         dinoX=parseInt(window.getComputedStyle(dino,null).getPropertyValue('left'));
         dino.style.left=(dinoX-112)+"px";   
-        }
-
-
-
-
-
-
-
+    }
 }
 
 
@@ -49,4 +46,21 @@ setInterval(()=>{
          gameOver.style.visibility='visible';
          obstacle.classList.remove('obstacleAni');
      }
+       
+        else if(offsetX<145 && cross){
+            score+=1;
+            updateScore(score);
+            cross=false;
+            setTimeout(()=>{
+                cross=true
+            },1000);
+        }
+
+
 },100);
+
+function updateScore(score){
+    scoreCont.innerHTML="YOUR SCORE: " +score;
+}
+
+
