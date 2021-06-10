@@ -40,6 +40,10 @@ body{
 
 
 .gameOver{
+    position: relative;
+    top: 63px;
+    font-size: 53px;
+    text-align: center;
     visibility: hidden;
 }
 
